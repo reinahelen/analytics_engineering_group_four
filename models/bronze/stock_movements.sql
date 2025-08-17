@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized = 'table'
+    )
+}}
+
 with raw_stock_movements as (
 select * from {{ source('inventory','stock_movements') }}
 )
