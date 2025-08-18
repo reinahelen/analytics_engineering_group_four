@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: inventory            # dbt name you’ll use 
     database: DQOCASC3M52OC_DB      # Snowflake database name
-    schema: INVENTORY          # Snowflake schema name
+    schema: INVENTORY       # Snowflake schema name
     tables:
       - name: suppliers         # dbt name you’ll use in source()
         description: "This table contains all supppliers details"

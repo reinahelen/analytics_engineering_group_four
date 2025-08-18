@@ -1,12 +1,9 @@
 {{
   config(
-    materialized = 'table'
-    )
+    materialized='table'
+  )
 }}
 
-with raw_stock_movements as (
-select * from {{ source('inventory','stock_movements') }}
-)
 select
     reason, 
     quantity,
@@ -16,4 +13,4 @@ select
     movement_date,
     movement_type,
     reference_doc
-from raw_stock_movements
+from {{ source('inventory','stock_movements') }}
