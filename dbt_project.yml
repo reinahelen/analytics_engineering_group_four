@@ -2,24 +2,27 @@ name: 'analytics_engineering_group_four'
 version: '1.0.0'
 config-version: 2
 
-# This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
-# These configurations specify where dbt should look for different types of files.
 model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+analysis-paths: ["analysis"]
 
-target-path: "target"  # directory which will store compiled SQL files
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
-
-# Configuring models
+# Default config for all models
 models:
-  bronze:
-    # Applies to all files under models/bronze/
-    +materialized: table
+  analytics_engineering_group_four:
+    bronze:
+      +schema: bronze
+      +materialized: table
+
+    
+    silver:
+      +schema: silver
+      +materialized: table
+
+    gold:
+      +schema: gold
+      +materialized: table
